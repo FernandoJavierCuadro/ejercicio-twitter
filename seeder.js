@@ -8,7 +8,7 @@ const faker = require("faker");
       username: faker.internet.userName(),
       description: faker.lorem.paragraph(),
       email: faker.internet.email(),
-      img: faker.image.imageUrl(),
+      image: faker.image.imageUrl(),
     });
     user.save();
   }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../views/partials/head'); %>
+  <body>
+    <%- include('../views/partials/header'); %>
+
+    <div class="container pb-4">
+      <h1 class="my-4 text-center">Admin Control</h1>
+      <div class="container pt-5 pb-5 border">
+        <div class="container pt-1 pb-1 bg-dark text-light">
+          <div class="row">
+            <div class="col text-left"><h4>Write a new article</h4></div>
+            <div class="col text-right">
+              <a class="btn btn-success" href="admin/create">Go</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Image</th>
+          <th>Created at</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <% articles.forEach(item => { %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.title %></td>
+            <td><%= item.img %></td>
+            <td><%= item.createdAt %></td>
+            <td>
+              <a href="/admin/update/<%= item.id %>" class="btn btn-sm btn-dark">
+                Update
+              </a>
+              <a href="/admin/delete/<%= item.id %>" class="btn btn-sm btn-danger">
+                Delete
+              </a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <!-- /.table -->
+    </div>
+
+    <%-include('../views/partials/footer'); %>
+    <%-include('../views/partials/scripts'); %>
+  </body>
+</html>
