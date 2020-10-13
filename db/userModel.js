@@ -3,11 +3,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = (mongoose, Schema) => {
   const UserSchema = new Schema({
-    name: String,
-    lastname: String,
-    email: String,
-    username: String,
-    password: String,
+    name: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true },
+    username: { type: String, required: true },
+    password: { type: String, required: true },
     description: String,
     image: String,
     tweets: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
