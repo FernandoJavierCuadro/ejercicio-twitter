@@ -5,6 +5,7 @@ const app = express();
 const session = require("express-session");
 const passport = require("passport");
 const routes = require("./routes/routes");
+const db = require("./db");
 
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -22,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-routes(app);
+//routes(app);
 
 app.listen(3000, () => {
     console.log("servidor escuchando en el puerto 3000...");
