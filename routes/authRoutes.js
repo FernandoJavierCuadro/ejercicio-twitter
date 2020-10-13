@@ -7,11 +7,11 @@ const {
 
 function authRoutes(app) {
   /* LOGIN */
-  /* app.get("/login", (req, res) => {
+  app.get("/login", (req, res) => {
     res.render("login");
   });
 
-  app.post("/login", signIn); */
+  app.post("/login", signIn);
 
   /* REGISTRO */
   app.get("/registro", (req, res) => {

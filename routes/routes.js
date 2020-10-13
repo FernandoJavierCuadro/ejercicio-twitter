@@ -2,7 +2,7 @@ const { renderHome } = require("../controllers/controller");
 
 function routes(app) {
   app.get("/", (req, res) => {
-    res.redirect("/registro");
+    res.redirect("/login");
   });
 
   /* app.get("/home", isLoggedIn, renderHome); */

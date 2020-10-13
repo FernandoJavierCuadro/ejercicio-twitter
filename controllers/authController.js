@@ -14,12 +14,12 @@ module.exports = {
     user.save();
   },
 
-  /* signIn: passport.authenticate("local", {
-    successRedirect: "/admin",
+  signIn: passport.authenticate("local", {
+    successRedirect: "/",
     failureRedirect: "/login",
   }),
 
-  facebookCall: passport.authenticate("facebook"),
+ /*  facebookCall: passport.authenticate("facebook"),
 
   facebookSignIn: passport.authenticate("facebook", {
     successRedirect: "/admin",
