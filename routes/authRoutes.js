@@ -1,8 +1,6 @@
 const {
   signIn,
   register,
-  facebookCall,
-  facebookSignIn,
 } = require("../controllers/authController");
 
 function authRoutes(app) {
