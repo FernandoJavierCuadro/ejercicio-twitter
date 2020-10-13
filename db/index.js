@@ -4,8 +4,8 @@ mongoose.connect(`mongodb://localhost/${process.env.DB_DATABASE}`);
 const UserModel = require("./userModel");
 const TweetModel = require("./tweetModel");
 
-const User = UserModel(mongoose, Schema);
-const Tweet = TweetModel(mongoose, Schema);
+const User = UserModel(Schema);
+const Tweet = TweetModel(Schema);
 
 const db = mongoose.connection;
 db.on("error", error => console.log(error));

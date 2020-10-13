@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose")
 
-module.exports = (mongoose, Schema) => {
+module.exports = (Schema) => {
     const Tweet = new Schema ({
         text: String,
         author: String,
