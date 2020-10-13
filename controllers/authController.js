@@ -2,7 +2,7 @@ const db = require("../db");
 const passport = require("passport");
 
 module.exports = {
-  register: async (req, res) => {
+  register: (req, res) => {
     const user= new User ({
       name: req.body.name,
       lastname: req.body.lastname,
@@ -18,7 +18,7 @@ module.exports = {
     }
   },
 
-  signIn: passport.authenticate("local", {
+  /* signIn: passport.authenticate("local", {
     successRedirect: "/admin",
     failureRedirect: "/login",
   }),
@@ -28,5 +28,5 @@ module.exports = {
   facebookSignIn: passport.authenticate("facebook", {
     successRedirect: "/admin",
     failureRedirect: "/login",
-  }),
+  }), */
 };

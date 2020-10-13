@@ -1,29 +1,19 @@
-const {
-  renderHome,
-  renderArticle,
-  addComment,
-  deleteComment,
-} = require("../controllers/controller");
+const { renderHome } = require("../controllers/controller");
 
 function routes(app) {
-    
   app.get("/", (req, res) => {
-    res.redirect("home");
+    res.redirect("/registro");
   });
 
-  app.get("/home", renderHome);
-
-  app.get("/home/articles/:title", (req, res) => {
-    renderArticle(req, res);
-  });
-
-  app.post("/home/comments", (req, res) => {
-    addComment(req, res);
-  });
-
-  app.get("/home/comments/:id", (req, res) => {
-    deleteComment(req, res);
-  });
+  /* app.get("/home", isLoggedIn, renderHome); */
 }
 
 module.exports = routes;
+
+/* function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    return res.redirect("/login");
+  }
+} */

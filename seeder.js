@@ -1,6 +1,6 @@
 const faker = require("faker");
 
-/* const usersSeed = (mongoose, User) => {
+const usersSeed = (mongoose, User) => {
   for (i = 0; i < 10; i++) {
     const user = new User({
       name: faker.name.firstName(),
@@ -12,7 +12,7 @@ const faker = require("faker");
     });
     user.save();
   }
-}; */
+};
 
 const tweetsSeed = (arr) => {
   let fakeComments = [];
