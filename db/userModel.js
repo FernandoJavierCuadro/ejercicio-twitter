@@ -12,9 +12,13 @@ module.exports = (mongoose, Schema) => {
     image: String,
   });
 
- /*  UserSchema.pre("save", function (user) {
-    bcrypt.hashSync(user.password, 10);
-  }); */
+  UserSchema.pre("save", function (next) {
+    if(!this.isModified("password")) {
+        return next();
+    }
+    this.password = bcrypt.hashSync(this.password, 10);
+    next();
+  });
 
   const User = mongoose.model("User", UserSchema);
 
