@@ -3,7 +3,7 @@ const passport = require("passport");
 
 module.exports = {
   register: (req, res) => {
-    const user= new User ({
+    const user= new db.User ({
       name: req.body.name,
       lastname: req.body.lastname,
       username: req.body.username,
@@ -11,11 +11,7 @@ module.exports = {
       email: req.body.email,
       image: req.body.image,
     });
-    if (created) {
-      req.login(User, () => res.redirect("/admin"));
-    } else {
-      res.redirect("back");
-    }
+    user.save();
   },
 
   /* signIn: passport.authenticate("local", {

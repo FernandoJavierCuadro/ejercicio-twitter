@@ -5,7 +5,7 @@ module.exports = (mongoose, Schema) => {
         name: String,
         lastname: String,
         username: String,
-        description: { type: String },
+        description: String, 
         email: String,
         image: String,
     });

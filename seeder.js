@@ -1,7 +1,7 @@
 const faker = require("faker");
 
 const usersSeed = (mongoose, User) => {
-  for (i = 0; i < 10; i++) {
+  /* for (i = 0; i < 10; i++) {
     const user = new User({
       name: faker.name.firstName(),
       lastname: faker.name.lastName(),
@@ -11,7 +11,7 @@ const usersSeed = (mongoose, User) => {
       image: faker.image.imageUrl(),
     });
     user.save();
-  }
+  } */
 };
 
 const tweetsSeed = (arr) => {
