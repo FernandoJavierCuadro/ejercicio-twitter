@@ -4,9 +4,10 @@ module.exports = (mongoose, Schema) => {
     const UserSchema = new Schema ({
         name: String,
         lastname: String,
-        username: String,
-        description: String, 
         email: String,
+        username: String,
+        password: String, //Bcrypt
+        description: String, 
         image: String,
     });
 
