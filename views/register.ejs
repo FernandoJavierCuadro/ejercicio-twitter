@@ -14,16 +14,15 @@
           <form class="" action="/registro" method="post" data-parsley-validate>
             <div class="form-group">
               <h5>
-                <label for="firstname">Name</label>
+                <label for="name">Name</label>
               </h5>
               <input
                 type="text"
-                name="firstname"
+                name="name"
                 value=""
-                id="firstname"
+                id="name"
                 placeholder="Enter your name..."
                 class="form-control"
-                required="true"
                 data-parsley-minlength="6"
               />
             </div>
@@ -38,7 +37,6 @@
                 id="lastname"
                 placeholder="Enter your last name..."
                 class="form-control"
-                required="true"
                 data-parsley-minlength="6"
               />
             </div>
@@ -53,7 +51,20 @@
                 id="email"
                 placeholder="Enter your email..."
                 class="form-control"
-                required="true"
+                data-parsley-minlength="6"
+              />
+            </div>
+            <div class="form-group">
+              <h5>
+                <label for="username">Username</label>
+              </h5>
+              <input
+                type="text"
+                name="username"
+                value=""
+                id="username"
+                placeholder="Enter your username..."
+                class="form-control"
                 data-parsley-minlength="6"
               />
             </div>
@@ -68,11 +79,24 @@
                 id="password"
                 placeholder="Enter your password..."
                 class="form-control"
-                required="true"
                 data-parsley-minlength="6"
               />
             </div>
-    
+            <div class="form-group">
+              <h5>
+                <label for="username">Username</label>
+              </h5>
+              <input
+                type="text"
+                name="image"
+                value=""
+                id="image"
+                placeholder="Enter your URL image..."
+                class="form-control"
+                data-parsley-minlength="6"
+              />
+            </div>
+
             <button
               type="submit"
               name="button"
