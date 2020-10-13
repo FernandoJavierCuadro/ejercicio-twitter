@@ -7,6 +7,7 @@ module.exports = {
       name: req.body.name,
       lastname: req.body.lastname,
       username: req.body.username,
+      password: req.body.password,
       description: req.body.description,
       email: req.body.email,
       image: req.body.image,
@@ -15,7 +16,7 @@ module.exports = {
   },
 
   signIn: passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/ok",
     failureRedirect: "/login",
   }),
 

@@ -6,7 +6,9 @@ const session = require("express-session");
 const passport = require("passport");
 const routes = require("./routes/routes");
 const authRoutes = require("./routes/authRoutes");
+const strategy = require("./passport-config");
 const db = require("./db");
+strategy(passport);
 
 app.use(express.json());
 app.set("view engine", "ejs");

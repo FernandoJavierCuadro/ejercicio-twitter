@@ -20,6 +20,7 @@ function authRoutes(app) {
 
   app.post("/registro", (req, res) => {
     register(req, res);
+    res.redirect("/login");
   });
 
   /* app.get("/auth/facebook", facebookCall);
