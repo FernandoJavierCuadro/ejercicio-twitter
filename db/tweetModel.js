@@ -5,7 +5,7 @@ module.exports = (mongoose, Schema) => {
     text: String,
     author: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "User"
     },
     date: Date,
     likes: Number,
