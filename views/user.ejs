@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-md">
               <div class="tweetProfileDesc">
-                <img src="" alt="imagen-perfil" />
+                <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle"/>
 
                 <p><%= user.name %> <%= user.lastname %></p>
                 <p><%= user.username %></p>
@@ -67,34 +67,30 @@
                     </div>
                     <div class="col">
                       <div class="tweetDescriptionFollowing">
-                        <div class="nameUsernameFollowing">
-                          <a href="localhost:3000/username/<%= user.username %>"
-                            ><%= user.username %></a
-                          >
-                          <h6>@<%= user.username %></h6>
-
-                          <a href="#" class="text-muted"
-                            ><!-- hace cuanto se creo el tweet --></a
-                          >
-                        </div>
                         <div class="container">
                           <div class="textInsideFollowing">
                             <% tweets.forEach(tweet => { %>
                             <div class="container border">
+                              <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle"/>
+                              <a href="localhost:3000/username/<%= user.username %>"
+                                ><%= user.username %></a
+                              >
                               <p><%= tweet.text %></p>
+                              <p><%= tweet.date %></p>
+                              <div class="likesBox">
+                                <a href="" class="btn"
+                                  ><i class="far fa-heart"></i
+                                ></a>
+                                <p>
+                                  <!-- objeto de likes para ir mostrando numeros -->
+                                </p>
+                              </div>
                             </div>
                             <% }) %>
                             <p><!-- contenido del tweet del following --></p>
                           </div>
                         </div>
-                        <div class="likesBox">
-                          <a href="" class="btn btn-primary"
-                            ><i class="far fa-heart"></i
-                          ></a>
-                          <p>
-                            <!-- objeto de likes para ir mostrando numeros -->
-                          </p>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

@@ -12,7 +12,7 @@ module.exports = {
       if (err) {
         return err;
       }
-      Tweet.find({ author: user._id }, function (err, tweets) {
+      Tweet.find({ author: user._id }).sort({ date: -1 }).exec( function (err, tweets) {
         if (err) {
           return err;
         }
