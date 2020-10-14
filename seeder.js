@@ -19,7 +19,7 @@ const tweetsSeed = (mongoose, Tweet) => {
   /* for (i = 0; i < 20; i++) {
     const tweet = new Tweet({
       text: faker.lorem.words(),
-      author: "5f860ac2dc5d06548c273ddd",
+      author: "5f872978726a76316c0b7f13",
     });
     tweet.save();
   } */
