@@ -1,7 +1,11 @@
 const { mongoose, User, Tweet } = require("../db");
 
 module.exports = {
-  renderHome: (req, res) => {},
+  renderHome: (req, res) => {
+    const tweetSearch = Tweet.find({author: req.user.following});
+    const userSearch = User.find({ _id: req.user.following});
+    res.render("home", { tweetSearch, userSearch });
+  },
 
   renderWelcome: (req, res) => {
     res.render("welcome");
