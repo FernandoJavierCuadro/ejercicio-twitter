@@ -1,7 +1,7 @@
 const faker = require("faker");
 
-const usersSeed = (mongoose, User) => {
-  /* for (i = 0; i < 5; i++) {
+const Seed = (mongoose, User, Tweet) => {
+  for (let i = 0; i < 5; i++) {
     const user = new User({
       name: faker.name.firstName(),
       lastname: faker.name.lastName(),
@@ -11,18 +11,18 @@ const usersSeed = (mongoose, User) => {
       description: faker.lorem.paragraph(),
       image: "https://randomuser.me/api/portraits/men/"+ (Math.floor(Math.random() * 200)) +".jpg",
     });
+
+    for (let j = 0; j < 10; j++) {
+      const tweet = new Tweet({
+        text: faker.lorem.words(),
+        author: user,
+        date: faker.date.recent(),
+      });
+      tweet.save();
+      user.tweets.push(tweet);
+    }
     user.save();
-  } */
+  }
 };
 
-const tweetsSeed = (mongoose, Tweet) => {
-  /* for (i = 0; i < 10; i++) {
-    const tweet = new Tweet({
-      text: faker.lorem.words(),
-      author: "5f87353e4b65222494d60d9e",
-    });
-    tweet.save();
-  } */
-};
-
-module.exports = { usersSeed, tweetsSeed };
+module.exports = { Seed };

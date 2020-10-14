@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 mongoose.connect(`mongodb://localhost/${process.env.DB_DATABASE}`);
 const UserModel = require("./userModel");
 const TweetModel = require("./tweetModel");
-const { usersSeed, tweetsSeed } = require("../seeder");
+const { Seed } = require("../seeder");
 
 const User = UserModel(mongoose, Schema);
 const Tweet = TweetModel(mongoose, Schema);
@@ -20,5 +20,4 @@ module.exports = {
   Tweet,
 };
 
-usersSeed(mongoose, User);
-tweetsSeed(mongoose, Tweet);
+Seed(mongoose, User, Tweet);
