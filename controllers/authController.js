@@ -18,12 +18,5 @@ module.exports = {
   signIn: passport.authenticate("local", {
     successRedirect: "/ok",
     failureRedirect: "/login",
-  }),
-
- /*  facebookCall: passport.authenticate("facebook"),
-
-  facebookSignIn: passport.authenticate("facebook", {
-    successRedirect: "/admin",
-    failureRedirect: "/login",
-  }), */
+  })
 };

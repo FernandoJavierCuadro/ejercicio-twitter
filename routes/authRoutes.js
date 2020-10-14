@@ -21,14 +21,10 @@ function authRoutes(app) {
     res.redirect("/login");
   });
 
-  /* app.get("/auth/facebook", facebookCall);
-
-  app.get("/auth/facebook/callback", facebookSignIn);
-
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
-  }); */
+  });
 }
 
 module.exports = authRoutes;

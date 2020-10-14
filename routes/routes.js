@@ -1,11 +1,11 @@
-const { renderHome } = require("../controllers/controller");
+const { renderUser } = require("../controllers/controller");
 
 function routes(app) {
   app.get("/", (req, res) => {
     res.redirect("/login");
   });
 
-  /* app.get("/home", isLoggedIn, renderHome); */
+  /* app.get("/user", isLoggedIn, renderUser); */
 }
 
 module.exports = routes;
