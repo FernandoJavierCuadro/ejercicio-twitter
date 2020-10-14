@@ -1,4 +1,4 @@
-const { renderUser, renderHome, renderWelcome } = require("../controllers/controller");
+const { renderUser, renderHome, renderWelcome, saveTweet } = require("../controllers/controller");
 
 function routes(app) {
   app.get("/", (req, res) => {
@@ -10,6 +10,8 @@ function routes(app) {
   app.get("/welcome", renderWelcome);
 
   app.get("/username/:username", renderUser);
+
+  app.post("/username/saveTweet", saveTweet);
 }
 
 module.exports = routes;

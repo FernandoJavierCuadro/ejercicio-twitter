@@ -1,5 +1,4 @@
-const { User } = require("../db");
-const db = require("../db");
+const { mongoose, User, Tweet } = require("../db");
 
 module.exports = {
   renderHome: (req, res) => {
@@ -11,12 +10,20 @@ module.exports = {
   },
 
   renderUser: (req, res) => {
-    db.User.findOne({ username: req.params.username }, function (err, user) {
-      console.log(req.params.username);
+    User.findOne({ username: req.params.username }, function (err, user) {
       if (err) {
         return err;
       }
       res.render("user", {user});
     }) 
+  },
+
+  saveTweet: (req, res) => {
+    const tweet = new Tweet ({
+      text: req.body.text,
+      author: mongoose.Types.ObjectId(req.body._id),
+    });
+    tweet.save();
+    res.redirect("back");
   },
 };

@@ -1,7 +1,7 @@
 const faker = require("faker");
 
 const usersSeed = (mongoose, User) => {
-  /* for (i = 0; i < 10; i++) {
+  /* for (i = 0; i < 4; i++) {
     const user = new User({
       name: faker.name.firstName(),
       lastname: faker.name.lastName(),
@@ -16,13 +16,13 @@ const usersSeed = (mongoose, User) => {
 };
 
 const tweetsSeed = (mongoose, Tweet) => {
-  for (i = 0; i < 20; i++) {
+  /* for (i = 0; i < 20; i++) {
     const tweet = new Tweet({
       text: faker.lorem.words(),
       author: "5f860ac2dc5d06548c273ddd",
     });
     tweet.save();
-  }
+  } */
 };
 
 module.exports = { usersSeed, tweetsSeed };
