@@ -4,104 +4,107 @@
   <body>
     <%- include('../views/partials/header'); %>
     <div class="container m-5">
-    <main class="bg-body pt-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md">
-            <div class="tweetProfileDesc">
-              <img src="" alt="imagen-perfil" />
+      <main class="bg-body pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div class="tweetProfileDesc">
+                <img src="" alt="imagen-perfil" />
 
-              <p><%= user.name %> <%= user.lastname %></p>
-              <p><%= user.username %> </p>
-              <p><%= user.description %> </p>
-              <div class="followingErs">
-                <a href=""><%= user.following.length %> Siguiendo</a>
-                <a href=""><%= user.followers.length %> Seguidores</a>
+                <p><%= user.name %> <%= user.lastname %></p>
+                <p><%= user.username %></p>
+                <p><%= user.description %></p>
+                <div class="followingErs">
+                  <a href=""><%= user.following.length %> Siguiendo</a>
+                  <a href=""><%= user.followers.length %> Seguidores</a>
+                </div>
+                <br />
               </div>
-              <br>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md">
-            <div class="tweetBox">
-              <form action="/username/saveTweet" method="POST">
-                <div class="row">
-                  <div class="col-md-1">
-                    <div class="profileImage rounded-circle">
-                      <!--user.image -->
+          <div class="row">
+            <div class="col-md">
+              <div class="tweetBox">
+                <form action="/username/saveTweet" method="POST">
+                  <div class="row">
+                    <div class="col-md-1">
+                      <div class="profileImage rounded-circle">
+                        <!--user.image -->
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-11">
-                    <input type="hidden" name="_id" value="<%= user._id %>">
-                    <div class="form-group tweetInput">
-                      <textarea
-                        class="form-control"
-                        name="text"
-                        id="tweetText"
-                        rows="3"
-                        placeholder="¿Qué está pasando?"
-                      ></textarea>
-                    </div>
-                    <div
-                      class="tweetAttachSubmit d-flex justify-content-end pr-3 pb-3"
-                    >
-                      <button
-                        type="submit"
-                        class="btn btn-primary rounded-pill"
+                    <div class="col-md-11">
+                      <input type="hidden" name="_id" value="<%= user._id %>" />
+                      <div class="form-group tweetInput">
+                        <textarea
+                          class="form-control"
+                          name="text"
+                          id="tweetText"
+                          rows="3"
+                          placeholder="¿Qué está pasando?"
+                        ></textarea>
+                      </div>
+                      <div
+                        class="tweetAttachSubmit d-flex justify-content-end pr-3 pb-3"
                       >
-                        Twittear
-                      </button>
+                        <button
+                          type="submit"
+                          class="btn btn-primary rounded-pill"
+                        >
+                          Twittear
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md">
-            <div class="tweetsFollowings mt-3">
-              <form action="" method="POST">
-                <div class="row">
-                  <div class="col-md-2">
-                    <div class="followingImage rounded-circle">
-                      <img src="" alt="" />
+          <div class="row">
+            <div class="col-md">
+              <div class="tweetsFollowings mt-3">
+                <form action="" method="POST">
+                  <div class="row">
                     </div>
-                  </div>
-                  <div class="col-md-10">
-                    <div class="tweetDescriptionFollowing">
-                      <div class="nameUsernameFollowing">
-                        <a href="localhost:3000/username/<%= user.username %>"
-                          ><%= user.username %></a
-                        >
-                        <h6>@<%= user.username %></h6>
+                    <div class="col">
+                      <div class="tweetDescriptionFollowing">
+                        <div class="nameUsernameFollowing">
+                          <a href="localhost:3000/username/<%= user.username %>"
+                            ><%= user.username %></a
+                          >
+                          <h6>@<%= user.username %></h6>
 
-                        <a href="#" class="text-muted"
-                          ><!-- hace cuanto se creo el tweet --></a
-                        >
-                      </div>
-                      <div class="textInsideFollowing">
-                        <p><!-- contenido del tweet del following --></p>
-                      </div>
-                      <div class="likesBox">
-                        <a href="" class="btn btn-primary"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                        <p>
-                          <!-- objeto de likes para ir mostrando numeros -->
-                        </p>
+                          <a href="#" class="text-muted"
+                            ><!-- hace cuanto se creo el tweet --></a
+                          >
+                        </div>
+                        <div class="container">
+                          <div class="textInsideFollowing">
+                            <% tweets.forEach(tweet => { %>
+                            <div class="container border">
+                              <p><%= tweet.text %></p>
+                            </div>
+                            <% }) %>
+                            <p><!-- contenido del tweet del following --></p>
+                          </div>
+                        </div>
+                        <div class="likesBox">
+                          <a href="" class="btn btn-primary"
+                            ><i class="far fa-heart"></i
+                          ></a>
+                          <p>
+                            <!-- objeto de likes para ir mostrando numeros -->
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
+      </main>
+    </div>
     <!-- PAGINA PERFIL TWITTER PERSONAL -->
 
     <%-include('../views/partials/footer'); %>
