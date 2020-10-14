@@ -3,13 +3,83 @@
   <%- include('../views/partials/head'); %>
   <body>
     <%- include('../views/partials/header'); %>
-    
-    <main class="bg-body pt-5 pb-5">
-      <div class="container">
-        
-      </div>
-    </main>
 
+    <main class="bg-body pt-5 pb-5">
+      <div class="container"></div>
+    </main>
+    <!-- PAGINA PERFIL TWITTER PERSONAL -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <div class="tweetBox">
+            <h3>Inicio</h3>
+            <form action="" method="POST">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="profileImage rounded-circle">
+                    <!--user.image -->
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="form-group tweetInput">
+                    <textarea
+                      class="form-control"
+                      id="tweetText"
+                      rows="3"
+                      placeholder="¿Qué está pasando?"
+                    ></textarea>
+                  </div>
+                  <div class="tweetAttachSubmit">
+                    <button type="submit" class="btn btn-primary rounded-pill">
+                      Twittear
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="tweetsFollowings mt-3">
+            <form action="" method="POST">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="followingImage rounded-circle">
+                    <img src="" alt="" />
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="tweetDescriptionFollowing">
+                    <div class="nameUsernameFollowing">
+                      <a href="localhost:3000/username/:username"
+                        ><!-- user.name + user.lastname --></a
+                      >
+                      <h6><!-- @ + user.username --></h6>
+
+                      <a href="#" class="text-muted"
+                        ><!-- hace cuanto se creo el tweet --></a
+                      >
+                    </div>
+                    <div class="textInsideFollowing">
+                      <p><!-- contenido del tweet del following --></p>
+                    </div>
+                    <div class="likesBox">
+                      <a href="" class="btn btn-primary"
+                        ><i class="far fa-heart"></i
+                      ></a>
+                      <p><!-- objeto de likes para ir mostrando numeros --></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <%-include('../views/partials/footer'); %>
     <%-include('../views/partials/scripts'); %>
   </body>
