@@ -30,6 +30,5 @@ routes(app);
 authRoutes(app);
 
 app.listen(3000, () => {
-    console.log("servidor escuchando en el puerto 3000...");
     console.log("ingresar a http://localhost:3000");
   });

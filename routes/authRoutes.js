@@ -10,7 +10,7 @@ function authRoutes(app) {
   });
 
   app.post("/login", signIn, (req, res) => {
-    res.redirect(`/${req.user.Username}`);
+    res.redirect(`/${req.user.username}`);
   });
 
   /* REGISTRO */
