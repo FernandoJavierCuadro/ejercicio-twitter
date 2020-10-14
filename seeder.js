@@ -15,14 +15,13 @@ const usersSeed = (mongoose, User) => {
   } */
 };
 
-const tweetsSeed = (arr) => {
-  let fakeComments = [];
-  for (i = 0; i < 20; i++) {
-    fakeComments[i] = {
+const tweetsSeed = (mongoose, Tweet) => {
+  /* for (i = 0; i < 20; i++) {
+    const tweet = new Tweet({
       text: faker.lorem.words(),
-    };
-  }
-  return fakeComments;
+    });
+    tweet.save();
+  } */
 };
 
 module.exports = { usersSeed, tweetsSeed };
