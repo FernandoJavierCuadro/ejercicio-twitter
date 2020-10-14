@@ -5,15 +5,15 @@ function routes(app) {
     res.redirect("/login");
   });
 
-  /* app.get("/user", isLoggedIn, renderUser); */
+  app.get("/:name", isLoggedIn, renderUser);
 }
 
 module.exports = routes;
 
-/* function isLoggedIn(req, res, next) {
+function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
     return res.redirect("/login");
   }
-} */
+}
