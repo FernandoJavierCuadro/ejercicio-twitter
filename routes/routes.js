@@ -5,7 +5,7 @@ function routes(app) {
     res.redirect("/home");
   });
 
-  app.get("/home", isLoggedIn, renderHome);
+  app.get("/home", renderHome);
 
   app.get("/welcome", renderWelcome);
 

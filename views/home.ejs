@@ -8,9 +8,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md">
+            <h3>Inicio</h3>
             <div class="tweetBox">
-              <h3 class="pl-3 pb-3 pt-3">Inicio</h3>
-              <form action="" method="POST">
+              <form action="/username/saveTweet" method="POST">
                 <div class="row">
                   <div class="col-md-1">
                     <div class="profileImage rounded-circle">
@@ -18,9 +18,11 @@
                     </div>
                   </div>
                   <div class="col-md-11">
+                    <input type="hidden" name="_id" value="<%= user._id %>" />
                     <div class="form-group tweetInput">
                       <textarea
                         class="form-control"
+                        name="text"
                         id="tweetText"
                         rows="3"
                         placeholder="¿Qué está pasando?"
@@ -47,34 +49,35 @@
             <div class="tweetsFollowings mt-3">
               <form action="" method="POST">
                 <div class="row">
-                  <div class="col-md-2">
-                    <div class="followingImage rounded-circle">
-                      <img src="" alt="" />
-                    </div>
                   </div>
-                  <div class="col-md-10">
+                  <div class="col">
                     <div class="tweetDescriptionFollowing">
-                      <div class="nameUsernameFollowing">
-                        <a href="localhost:3000/username/:username"
-                          ><!-- user.name + user.lastname --></a
-                        >
-                        <h6><!-- @ + user.username --></h6>
-
-                        <a href="#" class="text-muted"
-                          ><!-- hace cuanto se creo el tweet --></a
-                        >
+                      <div class="container">
+                        <div class="textInsideFollowing">
+                          <div class="container border">
+                            <% userSearch.forEach(user => { %>
+                            <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle"/>
+                            <a href="localhost:3000/username/<%= user.username %>"
+                              ><%= user.username %></a
+                            >
+                            <% }) %>
+                            <% tweetSearch.forEach(tweet => { %>
+                            <p><%= tweet.text %></p>
+                            <p><%= tweet.date %></p>
+                            <div class="likesBox">
+                              <a href="" class="btn"
+                                ><i class="far fa-heart"></i
+                              ></a>
+                              <p>
+                                <!-- objeto de likes para ir mostrando numeros -->
+                              </p>
+                            </div>
+                            <% }) %>
+                          </div>
+                          <p><!-- contenido del tweet del following --></p>
+                        </div>
                       </div>
-                      <div class="textInsideFollowing">
-                        <p><!-- contenido del tweet del following --></p>
-                      </div>
-                      <div class="likesBox">
-                        <a href="" class="btn btn-primary"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                        <p>
-                          <!-- objeto de likes para ir mostrando numeros -->
-                        </p>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
