@@ -5,7 +5,7 @@ function routes(app) {
     res.redirect("/login");
   });
 
-  app.post("/:username", isLoggedIn, renderUser);
+  app.get("/username/:username", renderUser);
 }
 
 module.exports = routes;
