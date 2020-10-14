@@ -1,7 +1,9 @@
 .tweetBox {
-  border: gray solid 1rem;
+  border: rgb(212, 212, 212) solid 1px;
 }
-
+.tweetBox h3 {
+  border-bottom: rgb(212, 212, 212) solid 1px;
+}
 .container-img {
   background-image: url("https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1106530967%2F960x0.jpg%3Ffit%3Dscale");
   background-repeat: no-repeat;
