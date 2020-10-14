@@ -1,9 +1,13 @@
-const { renderUser } = require("../controllers/controller");
+const { renderUser, renderHome, renderWelcome } = require("../controllers/controller");
 
 function routes(app) {
   app.get("/", (req, res) => {
-    res.redirect("/login");
+    res.redirect("/home");
   });
+
+  app.get("/home", isLoggedIn, renderHome);
+
+  app.get("/welcome", renderWelcome);
 
   app.get("/username/:username", renderUser);
 }
@@ -14,6 +18,6 @@ function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    return res.redirect("/login");
+    return res.redirect("/welcome");
   }
 }
