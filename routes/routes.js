@@ -6,6 +6,7 @@ const {
   renderVisitor,
   saveTweet,
   likeTweet,
+  deleteTweet,
 } = require("../controllers/controller");
 
 function routes(app) {
@@ -26,6 +27,8 @@ function routes(app) {
   app.post("/username/saveTweet", saveTweet);
 
   app.get("/like/:_id", likeTweet);
+
+  app.get("/delete/:_id", deleteTweet);
 }
 
 module.exports = routes;

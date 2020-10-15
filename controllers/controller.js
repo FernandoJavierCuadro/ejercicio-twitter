@@ -77,4 +77,13 @@ module.exports = {
     });
     res.redirect("back");
   },
+
+  deleteTweet: (req, res) => {
+    Tweet.findByIdAndRemove(req.params._id, (err, tweet) => {
+      if (err) {
+        return err;
+      }
+    });
+    res.redirect("back");
+  }
 };
