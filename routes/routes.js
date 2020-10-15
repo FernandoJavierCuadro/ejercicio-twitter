@@ -18,17 +18,17 @@ function routes(app) {
 
   app.get("/welcome", renderWelcome);
 
-  app.get("/profile/:username", renderUser);
+  app.get("/profile/:username", isLoggedIn, renderUser);
 
-  app.get("/username/:username", renderVisitor);
+  app.get("/username/:username", isLoggedIn, renderVisitor);
 
-  app.get("/follow/:_id", followUser);
+  app.get("/follow/:_id", isLoggedIn, followUser);
 
-  app.post("/username/saveTweet", saveTweet);
+  app.post("/username/saveTweet", isLoggedIn, saveTweet);
 
-  app.get("/like/:_id", likeTweet);
+  app.get("/like/:_id", isLoggedIn, likeTweet);
 
-  app.get("/delete/:_id", deleteTweet);
+  app.get("/delete/:_id", isLoggedIn, deleteTweet);
 }
 
 module.exports = routes;

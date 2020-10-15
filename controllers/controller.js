@@ -47,12 +47,22 @@ module.exports = {
 
   followUser: (req, res) => {
     User.findById(req.user._id, (err, user) => {
-      user.following.push(req.params._id);
-      user.save();
+      const foundObjId = user.following.find(
+        (e) => e.toString() === req.params._id.toString()
+      );
+      if (foundObjId === undefined) {
+        user.following.push(req.params._id);
+        user.save();
+      }
     });
     User.findById(req.params._id, (err, user) => {
-      user.followers.push(req.user._id);
-      user.save();
+      const foundObjId = user.followers.find(
+        (e) => e.toString() === req.user._id.toString()
+      );
+      if (foundObjId === undefined) {
+        user.followers.push(req.user._id);
+        user.save();
+      }
     });
     res.redirect("back");
   },
@@ -85,5 +95,5 @@ module.exports = {
       }
     });
     res.redirect("back");
-  }
+  },
 };
