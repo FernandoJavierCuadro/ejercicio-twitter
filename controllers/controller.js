@@ -69,4 +69,12 @@ module.exports = {
     });
     res.redirect("back");
   },
+
+  likeTweet: (req, res) => {
+    Tweet.findById(req.params._id, (err, tweet) => {
+      tweet.likes++;
+      tweet.save();
+    });
+    res.redirect("back");
+  },
 };

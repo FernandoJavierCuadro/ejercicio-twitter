@@ -34,12 +34,12 @@
                     <div class="col-md-1">
                       <div class="profileImage rounded-circle">
                         <img
-                                src="<%= user.image %>"
-                                alt="imagen-perfil"
-                                class="rounded-circle"
-                                width="50"
-                                height="50"
-                              />
+                          src="<%= user.image %>"
+                          alt="imagen-perfil"
+                          class="rounded-circle"
+                          width="50"
+                          height="50"
+                        />
                       </div>
                     </div>
                     <div class="col-md-11">
@@ -94,9 +94,15 @@
                               <p><%= tweet.text %></p>
                               <p><%= tweet.date %></p>
                               <div class="likesBox">
-                                <a href="" class="btn"
+                                <form
+                                  action="/like/<%= tweet._id %>"
+                                  method="GET"
+                                >
+                                  <a href="" class="btn"
                                   ><i class="far fa-heart"></i
                                 ></a>
+                                </form>
+                                <p><%= tweet.likes %></p>
                                 <p>
                                   <!-- objeto de likes para ir mostrando numeros -->
                                 </p>

@@ -5,6 +5,7 @@ const {
   followUser,
   renderVisitor,
   saveTweet,
+  likeTweet,
 } = require("../controllers/controller");
 
 function routes(app) {
@@ -23,6 +24,8 @@ function routes(app) {
   app.get("/follow/:_id", followUser);
 
   app.post("/username/saveTweet", saveTweet);
+
+  app.get("/like/:_id", likeTweet);
 }
 
 module.exports = routes;
