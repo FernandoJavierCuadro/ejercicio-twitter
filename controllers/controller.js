@@ -1,13 +1,12 @@
 const { mongoose, User, Tweet } = require("../db");
 
 module.exports = {
-  renderHome: (req, res) => {
-    User.findById(req.user._id)
+  renderHome: async (req, res) => {
+    await User.findById(req.user._id)
       .populate({
         path: "following",
         populate: {
           path: "tweets",
-          options: { sort: { date: -1 } },
           populate: "author",
         },
       })
@@ -23,8 +22,8 @@ module.exports = {
     res.render("welcome");
   },
 
-  renderUser: (req, res) => {
-    User.findOne({ username: req.params.username })
+  renderUser: async (req, res) => {
+    await User.findOne({ username: req.params.username })
       .populate("tweets")
       .exec((err, user) => {
         if (err) {
@@ -34,8 +33,8 @@ module.exports = {
       });
   },
 
-  renderVisitor: (req, res) => {
-    User.findOne({ username: req.params.username })
+  renderVisitor: async (req, res) => {
+    await User.findOne({ username: req.params.username })
       .populate("tweets")
       .exec((err, user) => {
         if (err) {
@@ -45,8 +44,8 @@ module.exports = {
       });
   },
 
-  followUser: (req, res) => {
-    User.findById(req.user._id, (err, user) => {
+  followUser: async (req, res) => {
+    await User.findById(req.user._id, (err, user) => {
       const foundObjId = user.following.find(
         (e) => e.toString() === req.params._id.toString()
       );
@@ -55,7 +54,7 @@ module.exports = {
         user.save();
       }
     });
-    User.findById(req.params._id, (err, user) => {
+    await User.findById(req.params._id, (err, user) => {
       const foundObjId = user.followers.find(
         (e) => e.toString() === req.user._id.toString()
       );
@@ -67,29 +66,29 @@ module.exports = {
     res.redirect("back");
   },
 
-  saveTweet: (req, res) => {
+  saveTweet: async (req, res) => {
     const tweet = new Tweet({
       text: req.body.text,
       author: mongoose.Types.ObjectId(req.body._id),
     });
     tweet.save();
-    User.findById(req.body._id, (err, user) => {
+    await User.findById(req.body._id, (err, user) => {
       user.tweets.push(tweet);
       user.save();
     });
     res.redirect("back");
   },
 
-  likeTweet: (req, res) => {
-    Tweet.findById(req.params._id, (err, tweet) => {
+  likeTweet: async (req, res) => {
+    await Tweet.findById(req.params._id, (err, tweet) => {
       tweet.likes++;
       tweet.save();
     });
     res.redirect("back");
   },
 
-  deleteTweet: (req, res) => {
-    Tweet.findByIdAndRemove(req.params._id, (err, tweet) => {
+  deleteTweet: async (req, res) => {
+    await Tweet.findByIdAndRemove(req.params._id, (err, tweet) => {
       if (err) {
         return err;
       }
