@@ -65,7 +65,7 @@
                                 <% }) %>
                                 <% }) %>
                                 <% viewTweets.sort((a, b) => {
-                                  return new Date(b.date) - new Date(a.date);
+                                  return new Date(b.createdAt) - new Date(a.createdAt);
                                 }); %> 
                                 <% viewTweets.forEach(viewTweet => { %>
                             <div class="container border">
@@ -81,7 +81,7 @@
                                 ><%= viewTweet.author.username %></a
                               >
                               <p><%= viewTweet.text %></p>
-                              <p><%= viewTweet.date %></p>
+                              <p><%= viewTweet.createdAt %></p>
                               <div class="likesBox">
                                 <form
                                   action="http://localhost:3000/like/<%= viewTweet._id %>"

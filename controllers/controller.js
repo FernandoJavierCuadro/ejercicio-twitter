@@ -14,7 +14,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("home", { user });
+        res.render("home", { user , authUser: req.user.username });
       });
   },
 
@@ -29,7 +29,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("user", { user });
+        res.render("user", { user, authUser: req.user.username  });
       });
   },
 
@@ -40,7 +40,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("user-visitor", { user });
+        res.render("user-visitor", { user, authUser: req.user.username  });
       });
   },
 
