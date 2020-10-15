@@ -17,6 +17,7 @@ const Seed = (mongoose, User, Tweet) => {
         text: faker.lorem.words(),
         author: user,
         date: faker.date.recent(),
+        likes: Math.floor(Math.random() * 10),
       });
       tweet.save();
       user.tweets.push(tweet);

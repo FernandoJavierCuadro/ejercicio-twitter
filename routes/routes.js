@@ -1,4 +1,11 @@
-const { renderUser, renderHome, renderWelcome, saveTweet } = require("../controllers/controller");
+const {
+  renderHome,
+  renderWelcome,
+  renderUser,
+  followUser,
+  renderVisitor,
+  saveTweet,
+} = require("../controllers/controller");
 
 function routes(app) {
   app.get("/", (req, res) => {
@@ -9,7 +16,11 @@ function routes(app) {
 
   app.get("/welcome", renderWelcome);
 
-  app.get("/username/:username", renderUser);
+  app.get("/profile/:username", renderUser);
+
+  app.get("/username/:username", renderVisitor);
+
+  app.get("/follow/:_id", followUser);
 
   app.post("/username/saveTweet", saveTweet);
 }

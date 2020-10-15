@@ -5,7 +5,11 @@ module.exports = {
     User.findById(req.user._id)
       .populate({
         path: "following",
-        populate: { path: "tweets", populate: "author" },
+        populate: {
+          path: "tweets",
+          options: { sort: { date: -1 } },
+          populate: "author",
+        },
       })
       .exec((err, user) => {
         if (err) {
@@ -28,6 +32,29 @@ module.exports = {
         }
         res.render("user", { user });
       });
+  },
+
+  renderVisitor: (req, res) => {
+    User.findOne({ username: req.params.username })
+      .populate("tweets")
+      .exec((err, user) => {
+        if (err) {
+          return err;
+        }
+        res.render("user-visitor", { user });
+      });
+  },
+
+  followUser: (req, res) => {
+    User.findById(req.user._id, (err, user) => {
+      user.following.push(req.params._id);
+      user.save();
+    });
+    User.findById(req.params._id, (err, user) => {
+      user.followers.push(req.user._id);
+      user.save();
+    });
+    res.redirect("back");
   },
 
   saveTweet: (req, res) => {

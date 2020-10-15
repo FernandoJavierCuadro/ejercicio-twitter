@@ -59,22 +59,30 @@
                       <div class="tweetDescriptionFollowing">
                         <div class="container">
                           <div class="textInsideFollowing">
+                            <% const viewTweets = [] %>
                             <% user.following.forEach(follower => { %>
                               <% follower.tweets.forEach(tweet => { %>
+                                <% viewTweets.push(tweet); %>
+                                <% }) %>
+                                <% }) %>
+                                <% viewTweets.sort((a, b) => {
+                                  return new Date(b.date) - new Date(a.date);
+                                }); %> 
+                                <% viewTweets.forEach(viewTweet => { %>
                             <div class="container border">
                               <img
-                                src="<%= tweet.author.image %>"
+                                src="<%= viewTweet.author.image %>"
                                 alt="imagen-perfil"
                                 class="rounded-circle"
                                 width="50"
                                 height="50"
                               />
                               <a
-                                href="localhost:3000/username/<%= tweet.author.username %>"
-                                ><%= tweet.author.username %></a
+                                href="http://localhost:3000/username/<%= viewTweet.author.username %>"
+                                ><%= viewTweet.author.username %></a
                               >
-                              <p><%= tweet.text %></p>
-                              <p><%= tweet.date %></p>
+                              <p><%= viewTweet.text %></p>
+                              <p><%= viewTweet.date %></p>
                               <div class="likesBox">
                                 <a href="" class="btn"
                                   ><i class="far fa-heart"></i
@@ -84,7 +92,6 @@
                                 </p>
                               </div>
                             </div>
-                            <% }) %>
                             <% }) %>
                             <p><!-- contenido del tweet del following --></p>
                           </div>
