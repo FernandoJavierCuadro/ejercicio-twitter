@@ -1,7 +1,19 @@
 const { mongoose, User, Tweet } = require("../db");
 
 module.exports = {
-  renderHome: (req, res) => {},
+  renderHome: (req, res) => {
+    User.findById(req.user._id)
+      .populate({
+        path: "following",
+        populate: { path: "tweets", populate: "author" },
+      })
+      .exec((err, user) => {
+        if (err) {
+          return err;
+        }
+        res.render("home", { user });
+      });
+  },
 
   renderWelcome: (req, res) => {
     res.render("welcome");
@@ -29,6 +41,5 @@ module.exports = {
       user.save();
     });
     res.redirect("back");
-  }
-    
-}
+  },
+};

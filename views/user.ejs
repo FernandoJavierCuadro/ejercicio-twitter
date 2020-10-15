@@ -9,7 +9,11 @@
           <div class="row">
             <div class="col-md">
               <div class="tweetProfileDesc">
-                <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle"/>
+                <img
+                  src="<%= user.image %>"
+                  alt="imagen-perfil"
+                  class="rounded-circle"
+                />
 
                 <p><%= user.name %> <%= user.lastname %></p>
                 <p><%= user.username %></p>
@@ -64,15 +68,21 @@
               <div class="tweetsFollowings mt-3">
                 <form action="" method="POST">
                   <div class="row">
-                    </div>
                     <div class="col">
                       <div class="tweetDescriptionFollowing">
                         <div class="container">
                           <div class="textInsideFollowing">
                             <% user.tweets.reverse().forEach(tweet => { %>
                             <div class="container border">
-                              <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle" width="50" height="50"/>
-                              <a href="localhost:3000/username/<%= user.username %>"
+                              <img
+                                src="<%= user.image %>"
+                                alt="imagen-perfil"
+                                class="rounded-circle"
+                                width="50"
+                                height="50"
+                              />
+                              <a
+                                href="localhost:3000/username/<%= user.username %>"
                                 ><%= user.username %></a
                               >
                               <p><%= tweet.text %></p>
@@ -90,7 +100,6 @@
                             <p><!-- contenido del tweet del following --></p>
                           </div>
                         </div>
-                        
                       </div>
                     </div>
                   </div>
