@@ -20,4 +20,4 @@ module.exports = {
   Tweet,
 };
 
-Seed(mongoose, User, Tweet);
+/* Seed(mongoose, User, Tweet); */

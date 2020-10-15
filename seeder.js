@@ -9,7 +9,7 @@ const Seed = (mongoose, User, Tweet) => {
       username: faker.internet.userName(),
       password: "admin123",
       description: faker.lorem.paragraph(),
-      image: "https://randomuser.me/api/portraits/men/"+ (Math.floor(Math.random() * 200)) +".jpg",
+      image: "https://randomuser.me/api/portraits/men/"+ (Math.floor(Math.random() * 100)) +".jpg",
     });
 
     for (let j = 0; j < 10; j++) {
