@@ -7,7 +7,7 @@ module.exports = (mongoose, Schema) => {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    date: Date,
+    date: { type: Date, default: Date.now() },
     likes: Number,
   });
 

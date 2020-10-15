@@ -69,7 +69,7 @@
                       <div class="tweetDescriptionFollowing">
                         <div class="container">
                           <div class="textInsideFollowing">
-                            <% tweets.forEach(tweet => { %>
+                            <% user.tweets.reverse().forEach(tweet => { %>
                             <div class="container border">
                               <img src="<%= user.image %>" alt="imagen-perfil" class="rounded-circle" width="50" height="50"/>
                               <a href="localhost:3000/username/<%= user.username %>"

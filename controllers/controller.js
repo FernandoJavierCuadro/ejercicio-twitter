@@ -8,19 +8,14 @@ module.exports = {
   },
 
   renderUser: (req, res) => {
-    User.findOne({ username: req.params.username }, function (err, user) {
-      if (err) {
-        return err;
-      }
-      Tweet.find({ author: user._id })
-        .sort({ date: -1 })
-        .exec(function (err, tweets) {
-          if (err) {
-            return err;
-          }
-          res.render("user", { user, tweets });
-        });
-    });
+    User.findOne({ username: req.params.username })
+      .populate("tweets")
+      .exec((err, user) => {
+        if (err) {
+          return err;
+        }
+        res.render("user", { user });
+      });
   },
 
   saveTweet: (req, res) => {
@@ -29,6 +24,11 @@ module.exports = {
       author: mongoose.Types.ObjectId(req.body._id),
     });
     tweet.save();
+    User.findById(req.body._id, (err, user) => {
+      user.tweets.push(tweet);
+      user.save();
+    });
     res.redirect("back");
-  },
-};
+  }
+    
+}
