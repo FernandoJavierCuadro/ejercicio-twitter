@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../views/partials/head'); %>
+  <body>
+    <%- include('../views/partials/header'); %>
+    <div class="container m-5">
+      <main class="bg-body pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div class="tweetProfileDesc">
+                <img
+                  src="<%= user.image %>"
+                  alt="imagen-perfil"
+                  class="rounded-circle"
+                />
+
+                <p><%= user.name %> <%= user.lastname %></p>
+                <p><%= user.username %></p>
+                <p><%= user.description %></p>
+                <div class="followingErs">
+                  <a href=""><%= user.following.length %> Siguiendo</a>
+                  <a href=""><%= user.followers.length %> Seguidores</a>
+                </div>
+                <br />
+                <form action="/follow/<%= user._id %>" method="GET">
+                  <button class="btn btn-primary rounded-pill" id="follow-btn">
+                    Seguir
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="tweetsFollowings mt-3">
+                <form action="" method="POST">
+                  <div class="row">
+                    <div class="col">
+                      <div class="tweetDescriptionFollowing">
+                        <div class="container">
+                          <div class="textInsideFollowing">
+                            <% user.tweets.reverse().forEach(tweet => { %>
+                            <div class="container border">
+                              <img
+                                src="<%= user.image %>"
+                                alt="imagen-perfil"
+                                class="rounded-circle"
+                                width="50"
+                                height="50"
+                              />
+                              <a
+                                href="localhost:3000/username/<%= user.username %>"
+                                ><%= user.username %></a
+                              >
+                              <p><%= tweet.text %></p>
+                              <p><%= tweet.createdAt %></p>
+                              <div class="likesBox">
+                                <a href="" class="btn"
+                                  ><i class="far fa-heart"></i
+                                ></a>
+                                <p>
+                                  <!-- objeto de likes para ir mostrando numeros -->
+                                </p>
+                              </div>
+                            </div>
+                            <% }) %>
+                            <p><!-- contenido del tweet del following --></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- PAGINA PERFIL TWITTER PERSONAL -->
+
+    <%-include('../views/partials/footer'); %>
+    <%-include('../views/partials/scripts'); %>
+  </body>
+</html>

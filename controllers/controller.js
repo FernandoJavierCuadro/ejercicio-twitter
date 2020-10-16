@@ -47,7 +47,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("user", { user, authUser: req.user.username });
+        res.render("user", { user, authUser: req.user.username, moment });
       });
   },
 

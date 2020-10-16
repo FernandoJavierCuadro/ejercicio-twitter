@@ -277,7 +277,10 @@
 
             <!-- new tweet textarea start -->
             <div class="new-tweet-textarea p-3 pb-0">
-              <form action="http://localhost:3000/username/saveTweet" method="POST">
+              <form
+                action="http://localhost:3000/username/saveTweet"
+                method="POST"
+              >
                 <div class="flex">
                   <div class="w-16">
                     <div class="inner">
@@ -476,11 +479,12 @@
                         <!-- tweet info bar start -->
                         <div class="tweet-info-bar flex items-center">
                           <!-- twet username start -->
-                          <span class="tweet-username relative block">
+                          <span class="tweet-username block">
                             <a
-                              href="#"
+                              href="http://localhost:3000/username/<%= tweet.author.username %>"
                               class="hover:underline text-gray-900 font-bold text-base mr-1"
-                              ><%= tweet.author.name %> <%= tweet.author.lastname %></a
+                              ><%= tweet.author.name %> <%=
+                              tweet.author.lastname %></a
                             >
                             <span
                               class="w-4 inline-block twitter-color verified"
@@ -508,7 +512,8 @@
                           <span class="inline-block ml-1">·</span>
                           <span
                             class="text-gray-600 text-base font-light tracking-wide inline-block ml-1"
-                            ><%= moment().startOf(tweet.date).fromNow(); %></span
+                            ><%= moment().startOf(tweet.date).fromNow();
+                            %></span
                           >
                         </div>
                         <!-- tweet info bar end -->
@@ -540,7 +545,7 @@
                                 <span
                                   class="px-1 inline-block ficon-text font-normal"
                                 >
-                                <%= Math.floor(Math.random() * 30); %>
+                                  <%= Math.floor(Math.random() * 30); %>
                                 </span>
                               </div>
                             </div>
@@ -577,9 +582,7 @@
                                   action="http://localhost:3000/like/<%= tweet._id %>"
                                   method="GET"
                                 >
-                                  <button
-                                    class="ficon like rounded-full"
-                                  >
+                                  <button class="ficon like rounded-full">
                                     <svg
                                       viewBox="0 0 24 24"
                                       class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
@@ -595,7 +598,7 @@
                                 <span
                                   class="px-1 inline-block ficon-text font-normal"
                                 >
-                                  <%= tweet.likes.length; %></span
+                                  <%= tweet.likes.length %></span
                                 >
                               </div>
                             </div>
