@@ -2,20 +2,19 @@ const { mongoose, User, Tweet } = require("../db");
 
 module.exports = {
   renderHome: async (req, res) => {
-    await User.findById(req.user._id)
-      .populate({
-        path: "following",
-        populate: {
-          path: "tweets",
-          populate: "author",
-        },
-      })
-      .exec((err, user) => {
-        if (err) {
-          return err;
-        }
-        res.render("home", { user , authUser: req.user.username });
-      });
+    await User.findById(req.user._id, (err, user) => {
+      if (err) {
+        return err;
+      }
+      Tweet.find({ author: { $in: user.following } })
+        .populate("author").sort({date: -1})
+        .exec((err, tweets) => {
+          if (err) {
+            return err;
+          }
+          res.render("home", { user, tweets, authUser: req.user.username });
+        });
+    });
   },
 
   renderWelcome: (req, res) => {
@@ -29,7 +28,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("profile", { user, authUser: req.user.username  });
+        res.render("profile", { user, authUser: req.user.username });
       });
   },
 
@@ -40,7 +39,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("user", { user, authUser: req.user.username  });
+        res.render("user", { user, authUser: req.user.username });
       });
   },
 

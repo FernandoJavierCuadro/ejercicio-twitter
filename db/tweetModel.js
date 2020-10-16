@@ -8,6 +8,7 @@ module.exports = (mongoose, Schema) => {
         type: Schema.Types.ObjectId,
         ref: "User",
       },
+      date: Date,
       likes: Number,
     },
     { timestamp: true }

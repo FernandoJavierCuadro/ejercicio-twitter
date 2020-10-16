@@ -58,33 +58,24 @@
                       <div class="tweetDescriptionFollowing">
                         <div class="container">
                           <div class="textInsideFollowing">
-                            <% const viewTweets = [] %>
-                            <% user.following.forEach(follower => { %>
-                              <% follower.tweets.forEach(tweet => { %>
-                                <% viewTweets.push(tweet); %>
-                                <% }) %>
-                                <% }) %>
-                                <% viewTweets.sort((a, b) => {
-                                  return new Date(b.createdAt) - new Date(a.createdAt);
-                                }); %> 
-                                <% viewTweets.forEach(viewTweet => { %>
+                                <% tweets.forEach(tweet => { %>
                             <div class="container border">
                               <img
-                                src="<%= viewTweet.author.image %>"
+                                src="<%= tweet.author.image %>"
                                 alt="imagen-perfil"
                                 class="rounded-circle"
                                 width="50"
                                 height="50"
                               />
                               <a
-                                href="http://localhost:3000/username/<%= viewTweet.author.username %>"
-                                ><%= viewTweet.author.username %></a
+                                href="http://localhost:3000/username/<%= tweet.author.username %>"
+                                ><%= tweet.author.username %></a
                               >
-                              <p><%= viewTweet.text %></p>
-                              <p><%= viewTweet.createdAt %></p>
+                              <p><%= tweet.text %></p>
+                              <p><%= tweet.date %></p>
                               <div class="likesBox">
                                 <form
-                                  action="http://localhost:3000/like/<%= viewTweet._id %>"
+                                  action="http://localhost:3000/like/<%= tweet._id %>"
                                   method="GET"
                                 >
                                   <button
@@ -92,7 +83,7 @@
                                     id="follow-btn"
                                   ></button>
                                 </form>
-                                <p><%= viewTweet.likes %></p>
+                                <p><%= tweet.likes %></p>
                                 <p>
                                   <!-- objeto de likes para ir mostrando numeros -->
                                 </p>
