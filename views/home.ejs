@@ -455,8 +455,8 @@
                   class="tweet cursor-pointer hover:bg-gray-100 transition-3 border border-l-0 border-r-0 border-t-0 p-4 pb-0"
                 >
                   <div class="flex">
-                    <% tweets.forEach(tweet => { %>
                     <div class="w-auto">
+                      <% tweets.forEach(tweet => { %>
                       <!-- tweet user img start -->
                       <div class="tweet-user-img">
                         <span class="w-12 rounded-full overflow-hidden mr-2">
@@ -478,7 +478,7 @@
                             <a
                               href="#"
                               class="hover:underline text-gray-900 font-bold text-base mr-1"
-                              >Shelly Walia</a
+                              >"<%= tweet.author.name %>"</a
                             >
                             <span
                               class="w-4 inline-block twitter-color verified"
