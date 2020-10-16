@@ -60,7 +60,7 @@ module.exports = {
         user.following.push(req.params._id);
         user.save();
       } else {
-        User.update(
+        User.updateOne(
           { _id: req.user._id },
           { $pull: { following: req.params._id } },
           { safe: true, multi: true },
@@ -80,7 +80,7 @@ module.exports = {
         user.followers.push(req.user._id);
         user.save();
       } else {
-        User.update(
+        User.updateOne(
           { _id: req.params._id },
           { $pull: { followers: req.user._id } },
           { safe: true, multi: true },
