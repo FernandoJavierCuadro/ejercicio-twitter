@@ -449,14 +449,15 @@
 
             <!-- tweets wrapper start -->
             <div class="tweets-wrapper">
+              <% tweets.forEach(tweet => { %>
               <div class="innner">
                 <!-- tweet start -->
                 <div
                   class="tweet cursor-pointer hover:bg-gray-100 transition-3 border border-l-0 border-r-0 border-t-0 p-4 pb-0"
                 >
                   <div class="flex">
+                    
                     <div class="w-auto">
-                      <% tweets.forEach(tweet => { %>
                       <!-- tweet user img start -->
                       <div class="tweet-user-img">
                         <span class="w-12 rounded-full overflow-hidden mr-2">
@@ -642,11 +643,12 @@
                       </div>
                       <!-- tweet tweet end -->
                     </div>
-                    <% }) %>
+                    
                   </div>
                 </div>
                 <!-- tweet end -->
               </div>
+              <% }) %>
             </div>
             <!-- tweets wrapper end -->
           </div>
