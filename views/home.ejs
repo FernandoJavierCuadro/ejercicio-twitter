@@ -277,8 +277,8 @@
 
             <!-- new tweet textarea start -->
             <div class="new-tweet-textarea p-3 pb-0">
-              <div class="flex">
-                <form action="/username/saveTweet" method="POST">
+              <form action="/username/saveTweet" method="POST">
+                <div class="flex">
                   <div class="w-16">
                     <div class="inner">
                       <img
@@ -438,8 +438,8 @@
                       </div>
                     </div>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
             <!-- new tweet textarea end -->
 
@@ -456,7 +456,6 @@
                   class="tweet cursor-pointer hover:bg-gray-100 transition-3 border border-l-0 border-r-0 border-t-0 p-4 pb-0"
                 >
                   <div class="flex">
-                    
                     <div class="w-auto">
                       <!-- tweet user img start -->
                       <div class="tweet-user-img">
@@ -599,21 +598,6 @@
                                 >
                               </div>
                             </div>
-                            <div class="likesBox">
-                              <form
-                                action="http://localhost:3000/like/<%= tweet._id %>"
-                                method="GET"
-                              >
-                                <button
-                                  class="far fa-heart"
-                                  id="follow-btn"
-                                ></button>
-                              </form>
-                              <p><%= tweet.likes %></p>
-                              <p>
-                                <!-- objeto de likes para ir mostrando numeros -->
-                              </p>
-                            </div>
 
                             <div class="inline-block w-full">
                               <div
@@ -643,7 +627,6 @@
                       </div>
                       <!-- tweet tweet end -->
                     </div>
-                    
                   </div>
                 </div>
                 <!-- tweet end -->
