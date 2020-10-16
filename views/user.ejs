@@ -283,15 +283,17 @@
               >
                 <div class="">
                   <!--  user img start -->
-                  <div class="tweet-user-img relative">
+                  <div class="tweet-user-img">
                     <span class="rounded-full overflow-hidden mr-2">
                       <img src="<%= user.image %>" alt="tweet user image" />
                     </span>
-                    <button
-                      class="absolute right-0 hover:bg-blue-500 transition-3 hover:text-white twitter-border rounded-full twitter-color px-4 py-px font-bold"
-                    >
-                      Follow
-                    </button>
+                    <form class="text-right" action="http://localhost:3000/follow/<%= user._id %>" method="GET">
+                      <button
+                        class="right-0 hover:bg-blue-500 transition-3 hover:text-white twitter-border rounded-full twitter-color px-4 py-px font-bold"
+                      >
+                        Follow
+                      </button>
+                    </form>
                   </div>
                   <!--  user img end -->
 
