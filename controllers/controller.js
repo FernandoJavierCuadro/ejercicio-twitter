@@ -9,12 +9,18 @@ module.exports = {
         return err;
       }
       Tweet.find({ author: { $in: user.following } })
-        .populate("author").sort({date: -1})
+        .populate("author")
+        .sort({ date: -1 })
         .exec((err, tweets) => {
           if (err) {
             return err;
           }
-          res.render("home", { user, tweets, authUser: req.user.username, moment});
+          res.render("home", {
+            user,
+            tweets,
+            authUser: req.user.username,
+            moment,
+          });
         });
     });
   },
@@ -30,7 +36,7 @@ module.exports = {
         if (err) {
           return err;
         }
-        res.render("profile", { user, authUser: req.user.username });
+        res.render("profile", { user, authUser: req.user.username, moment });
       });
   },
 
