@@ -88,8 +88,13 @@ module.exports = {
 
   likeTweet: async (req, res) => {
     await Tweet.findById(req.params._id, (err, tweet) => {
-      tweet.likes++;
-      tweet.save();
+      const foundObjId = tweet.likes.find(
+        (e) => e.toString() === req.user._id.toString()
+      );
+      if (foundObjId === undefined) {
+        tweet.likes.push(req.user._id);
+        tweet.save();
+      }
     });
     res.redirect("back");
   },
