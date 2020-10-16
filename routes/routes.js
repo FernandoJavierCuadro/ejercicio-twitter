@@ -1,9 +1,9 @@
 const {
   renderHome,
   renderWelcome,
-  renderUser,
+  renderProfile,
   followUser,
-  renderVisitor,
+  renderUser,
   saveTweet,
   likeTweet,
   deleteTweet,
@@ -18,9 +18,9 @@ function routes(app) {
 
   app.get("/welcome", renderWelcome);
 
-  app.get("/profile/:username", isLoggedIn, renderUser);
+  app.get("/profile/:username", isLoggedIn, renderProfile);
 
-  app.get("/username/:username", isLoggedIn, renderVisitor);
+  app.get("/username/:username", isLoggedIn, renderUser);
 
   app.get("/follow/:_id", isLoggedIn, followUser);
 

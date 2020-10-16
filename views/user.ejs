@@ -23,48 +23,10 @@
                   <a href=""><%= user.followers.length %> Seguidores</a>
                 </div>
                 <br />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md">
-              <div class="tweetBox">
-                <form action="/username/saveTweet" method="POST">
-                  <div class="row">
-                    <div class="col-md-1">
-                      <div class="profileImage rounded-circle">
-                        <img
-                          src="<%= user.image %>"
-                          alt="imagen-perfil"
-                          class="rounded-circle"
-                          width="50"
-                          height="50"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-11">
-                      <input type="hidden" name="_id" value="<%= user._id %>" />
-                      <div class="form-group tweetInput">
-                        <textarea
-                          class="form-control"
-                          name="text"
-                          id="tweetText"
-                          rows="3"
-                          placeholder="¿Qué está pasando?"
-                        ></textarea>
-                      </div>
-                      <div
-                        class="tweetAttachSubmit d-flex justify-content-end pr-3 pb-3"
-                      >
-                        <button
-                          type="submit"
-                          class="btn btn-primary rounded-pill"
-                        >
-                          Twittear
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                <form action="/follow/<%= user._id %>" method="GET">
+                  <button class="btn btn-primary rounded-pill" id="follow-btn">
+                    Seguir
+                  </button>
                 </form>
               </div>
             </div>
@@ -72,46 +34,44 @@
           <div class="row">
             <div class="col-md">
               <div class="tweetsFollowings mt-3">
-                <div class="row">
-                  <div class="col">
-                    <div class="tweetDescriptionFollowing">
-                      <div class="container">
-                        <div class="textInsideFollowing">
-                          <% user.tweets.reverse().forEach(tweet => { %>
-                          <div class="container border">
-                            <img
-                              src="<%= user.image %>"
-                              alt="imagen-perfil"
-                              class="rounded-circle"
-                              width="50"
-                              height="50"
-                            />
-                            <a
-                              href="localhost:3000/username/<%= user.username %>"
-                              ><%= user.username %></a
-                            >
-                            <p><%= tweet.text %></p>
-                            <p><%= tweet.createdAt %></p>
-                            <div class="likesBox">
-                              <a href="" class="btn"
-                                ><i class="far fa-heart"></i
-                              ></a>
-                              <p><%= tweet.likes %></p>
+                <form action="" method="POST">
+                  <div class="row">
+                    <div class="col">
+                      <div class="tweetDescriptionFollowing">
+                        <div class="container">
+                          <div class="textInsideFollowing">
+                            <% user.tweets.reverse().forEach(tweet => { %>
+                            <div class="container border">
+                              <img
+                                src="<%= user.image %>"
+                                alt="imagen-perfil"
+                                class="rounded-circle"
+                                width="50"
+                                height="50"
+                              />
+                              <a
+                                href="localhost:3000/username/<%= user.username %>"
+                                ><%= user.username %></a
+                              >
+                              <p><%= tweet.text %></p>
+                              <p><%= tweet.createdAt %></p>
+                              <div class="likesBox">
+                                <a href="" class="btn"
+                                  ><i class="far fa-heart"></i
+                                ></a>
+                                <p>
+                                  <!-- objeto de likes para ir mostrando numeros -->
+                                </p>
+                              </div>
                             </div>
-                            <form
-                              action="http://localhost:3000/delete/<%= tweet._id %>"
-                              method="GET"
-                            >
-                              <button class="btn btn-warning">Eliminar</button>
-                            </form>
+                            <% }) %>
+                            <p><!-- contenido del tweet del following --></p>
                           </div>
-                          <% }) %>
-                          <p><!-- contenido del tweet del following --></p>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

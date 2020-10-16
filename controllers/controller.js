@@ -22,6 +22,17 @@ module.exports = {
     res.render("welcome");
   },
 
+  renderProfile: async (req, res) => {
+    await User.findOne({ username: req.params.username })
+      .populate("tweets")
+      .exec((err, user) => {
+        if (err) {
+          return err;
+        }
+        res.render("profile", { user, authUser: req.user.username  });
+      });
+  },
+
   renderUser: async (req, res) => {
     await User.findOne({ username: req.params.username })
       .populate("tweets")
@@ -30,17 +41,6 @@ module.exports = {
           return err;
         }
         res.render("user", { user, authUser: req.user.username  });
-      });
-  },
-
-  renderVisitor: async (req, res) => {
-    await User.findOne({ username: req.params.username })
-      .populate("tweets")
-      .exec((err, user) => {
-        if (err) {
-          return err;
-        }
-        res.render("user-visitor", { user, authUser: req.user.username  });
       });
   },
 
