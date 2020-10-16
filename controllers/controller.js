@@ -1,4 +1,6 @@
 const { mongoose, User, Tweet } = require("../db");
+const moment = require("moment");
+moment().format();
 
 module.exports = {
   renderHome: async (req, res) => {
@@ -12,7 +14,7 @@ module.exports = {
           if (err) {
             return err;
           }
-          res.render("home", { user, tweets, authUser: req.user.username });
+          res.render("home", { user, tweets, authUser: req.user.username, moment});
         });
     });
   },

@@ -11,5 +11,4 @@ jQuery(document).ready(function() {
 
 
     $("#homeNavbar, #leftNavbar, #rightSide").sticky({ topSpacing: 0 });
-
 })
