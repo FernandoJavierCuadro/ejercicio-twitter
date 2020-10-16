@@ -59,6 +59,17 @@ module.exports = {
       if (foundObjId === undefined) {
         user.following.push(req.params._id);
         user.save();
+      } else {
+        User.update(
+          { _id: req.user._id },
+          { $pull: { following: req.params._id } },
+          { safe: true, multi: true },
+          (err, user) => {
+            if (err) {
+              return err;
+            }
+          }
+        );
       }
     });
     await User.findById(req.params._id, (err, user) => {
@@ -68,6 +79,17 @@ module.exports = {
       if (foundObjId === undefined) {
         user.followers.push(req.user._id);
         user.save();
+      } else {
+        User.update(
+          { _id: req.params._id },
+          { $pull: { followers: req.user._id } },
+          { safe: true, multi: true },
+          (err, user) => {
+            if (err) {
+              return err;
+            }
+          }
+        );
       }
     });
     res.redirect("back");
@@ -94,6 +116,17 @@ module.exports = {
       if (foundObjId === undefined) {
         tweet.likes.push(req.user._id);
         tweet.save();
+      } else {
+        Tweet.update(
+          { _id: req.params._id },
+          { $pull: { likes: req.user._id } },
+          { safe: true, multi: true },
+          (err, tweet) => {
+            if (err) {
+              return err;
+            }
+          }
+        );
       }
     });
     res.redirect("back");
