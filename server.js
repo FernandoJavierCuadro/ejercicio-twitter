@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 
 const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
 const passport = require("passport");
 const routes = require("./routes/routes");
 const authRoutes = require("./routes/authRoutes");
@@ -22,6 +23,7 @@ app.use(
     secret: "AlgúnTextoSuperSecreto",
     resave: false,
     saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: db.mongoose.connection })
   })
 );
 
@@ -31,6 +33,6 @@ app.use(passport.session());
 routes(app);
 authRoutes(app);
 
-app.listen(process.env.APP_PORT, () => {
+app.listen( APP_PORT, () => {
   console.log("ingresar a ");
 });
