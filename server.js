@@ -30,5 +30,5 @@ routes(app);
 authRoutes(app);
 
 app.listen(3000, () => {
-    console.log("ingresar a http://localhost:3000");
+    console.log("ingresar a ");
   });

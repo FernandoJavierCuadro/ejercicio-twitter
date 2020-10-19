@@ -132,7 +132,7 @@
                   <!-- side navigation list item start -->
                   <li class="side-navigation-list-item">
                     <a
-                      href="http://localhost:3000/login"
+                      href="/login"
                       class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full"
                     >
                       <i class="icon float-left">
@@ -154,7 +154,7 @@
                   <!-- side navigation list item start -->
                   <li class="side-navigation-list-item">
                     <a
-                      href="http://localhost:3000/logout"
+                      href="/logout"
                       class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full"
                     >
                       <i class="icon float-left">
@@ -179,7 +179,7 @@
                   <!-- side navigation list item start -->
                   <li class="side-navigation-list-item">
                     <a
-                      href="http://localhost:3000/profile/<%= authUser %>"
+                      href="/profile/<%= authUser %>"
                       class="active clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full"
                     >
                       <i class="icon float-left image">
@@ -356,7 +356,7 @@
             <!-- new tweet textarea start -->
             <div class="new-tweet-textarea p-3 pb-0">
               <form
-                action="http://localhost:3000/username/saveTweet"
+                action="/username/saveTweet"
                 method="POST"
               >
                 <div class="flex">
@@ -580,7 +580,7 @@
 
                           <a
                             class="text-gray-600 text-base font-light tracking-wide inline-block ml-1"
-                            href="http://localhost:3000/username/<%= user.username %>"
+                            href="/username/<%= user.username %>"
                             >@<%= user.username %></a
                           >
                           <span class="inline-block ml-1">·</span>
@@ -654,7 +654,7 @@
                                 class="inline-flex ficon-wrapper like text-gray-600"
                               >
                                 <form
-                                  action="http://localhost:3000/like/<%= tweet._id %>"
+                                  action="/like/<%= tweet._id %>"
                                   method="GET"
                                 >
                                   <button class="ficon like rounded-full">
@@ -706,7 +706,7 @@
                                 class="inline-flex ficon-wrapper like text-gray-600"
                               >
                                 <form
-                                  action="http://localhost:3000/delete/<%= tweet._id %>"
+                                  action="/delete/<%= tweet._id %>"
                                   method="GET"
                                 >
                                   <button
