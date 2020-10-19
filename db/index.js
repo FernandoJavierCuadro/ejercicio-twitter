@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-mongoose.connect(`mongodb://localhost/${process.env.DB_DATABASE}`);
+mongoose.connect(process.env.DB_CONNECTION);
 mongoose.set("useFindAndModify", false);
 const UserModel = require("./userModel");
 const TweetModel = require("./tweetModel");
