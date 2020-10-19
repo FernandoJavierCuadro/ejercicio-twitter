@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-mongoose.connect(process.env.DB_CONNECTION);
+mongoose.connect(`mongodb+srv://root:<${process.env.DB_PASSWORD}>@ejercicio-twitter.ojxxy.mongodb.net/<${process.env.DB_DATABASE}>?retryWrites=true&w=majority`);
 mongoose.set("useFindAndModify", false);
 const UserModel = require("./userModel");
 const TweetModel = require("./tweetModel");
