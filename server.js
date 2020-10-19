@@ -11,8 +11,9 @@ const db = require("./db");
 strategy(passport);
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(
@@ -30,5 +31,5 @@ routes(app);
 authRoutes(app);
 
 app.listen(process.env.APP_PORT, () => {
-    console.log("ingresar a ");
-  });
+  console.log("ingresar a ");
+});
